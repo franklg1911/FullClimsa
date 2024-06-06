@@ -1,0 +1,235 @@
+
+/* Font Family */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat&display=swap');
+
+body {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  color: #5a5a5a;
+  font-family: 'Arial', sans-serif;
+}
+
+h1{
+  font-weight: bold;
+}
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+.navbar-brand{
+  font-size: 30px;
+  margin-left: 25px;
+  font-weight: bold;
+}
+
+.nav-item{
+  font-size: 20px;
+}
+
+.navbar-nav .nav-item {
+  margin-right: 20px;
+}
+
+/* Carousel base class */
+.carousel {
+  margin-bottom: 4rem;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  bottom: 3rem;
+  z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel-item {
+  height: 32rem;
+}
+.carousel-item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 32rem;
+}
+
+/* Fondo navbar */
+.bg-FullClimsa{
+  background-color: #01FEAC;
+}
+
+.carousel-caption h1{
+  font-size: 3rem;
+}
+
+.carousel-caption p {
+  font-size: 1.5rem;
+}
+
+/* Botones */
+.btn-FullClimsa-Secondary{
+  background-color: #3F00FB;
+  color: #FFFF;
+}
+
+.btn-FullClimsa-Secondary:hover{
+  background-color: #2E00C7;
+  color: #FFFFFF;
+}
+
+/* Categorias img */
+.categorias-img{
+  padding: 20px;
+}
+
+.marketing h2{
+  color: #000000;
+}
+
+.marketing p{
+  color: #000000;
+}
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.marketing h2 {
+  font-weight: 400;
+}
+/* rtl:begin:ignore */
+.marketing .col-lg-4 p {
+  margin-right: .75rem;
+  margin-left: .75rem;
+}
+
+footer h3{
+  color: #000000;
+}
+
+.social-icons {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;  
+}
+
+.social-icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #000000;
+  border-radius: 50%;
+  color: #080808;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.social-icon:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* Login */
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: 150px auto 0;
+}
+
+.form-signin .checkbox {
+  font-weight: 400;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+form h1 {
+  color: #000000;
+  text-align: center;
+}
+
+form label {
+  color: #000000;
+  font-size: 15px;
+}
+
+form p{
+  font-size: 13px;
+}
+
+/* Featurettes
+------------------------- */
+
+.featurette-divider {
+  margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1;
+  /* rtl:remove */
+  letter-spacing: -.05rem;
+}
+
+.img-banner-4{
+  border-radius: 5px;
+  width: 150%;
+  height: auto;
+}
+
+.row h3{
+  color: #000000;
+}
+
+strong{
+  color: #3F00FB;
+}
+
+/* Nosotros */
+.img-nosotros {
+  border-radius: 5px;
+  width: 100%;
+  height: auto;
+}
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 40em) {
+  /* Bump up size of carousel content */
+  .carousel-caption p {
+    margin-bottom: 1.25rem;
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
+
+  .featurette-heading {
+    font-size: 50px;
+  }
+}
+
+@media (min-width: 62em) {
+  .featurette-heading {
+    margin-top: 7rem;
+  }
+}
+
+
