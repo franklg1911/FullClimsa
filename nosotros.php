@@ -26,6 +26,8 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <!-- Sweet alert 2 -->
+    <link href="vendor/plugin/sweetalert2.min.css" rel="stylesheet" />
     <!-- Estilos imagen -->
     <style>
       .bd-placeholder-img {
@@ -127,9 +129,9 @@
             />
           </div>
         </div>
-
+        
         <hr class="featurette-divider" />
-
+        
         <div class="row featurette">
           <div class="col-md-7 order-md-2">
             <h2 class="featurette-heading">EN NUESTRA ORGANIZACIÓN</h2>
@@ -149,6 +151,26 @@
               alt="Imagen 1"
             />
           </div>
+        </div>
+        <!-- Formulario de quejas y consultas -->
+        <div class="row featurette">
+          <div class="col-md-7">
+            <h2 class="featurette-heading">Consulta y reclamos</h2>
+            <form id="consultaReclamoForm">
+              <div class="mb-3">
+                <label for="name" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" autocomplete="off" required>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Correo</label>
+                <input type="email" class="form-control" id="correo" name="correo" autocomplete="off" required>
+              </div>
+              <div class="mb-3">
+                <label for="message" class="form-label">Mensaje</label>
+                <textarea name="mensaje" class="form-control" id="mensaje" rows="3" autocomplete="off" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-FullClimsa-Secondary">Enviar</button>
+            </form>
         </div>
         <hr class="featurette-divider" />
         <!-- /END THE FEATURETTES -->
@@ -187,6 +209,7 @@
       </div>
     </footer>
   </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <!-- Bootstrap 5.0.2 -->
   <script
     src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
@@ -198,5 +221,7 @@
     integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
     crossorigin="anonymous"
   ></script>
+  <script src="assets/js/admin/consulta.js"></script>
   <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/plugin/sweetalert2.all.min.js"></script>
 </html>
