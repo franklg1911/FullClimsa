@@ -1,4 +1,6 @@
 <?php
+require_once("../../config/conexion.php");
+
 //Iniciar sesión 
 session_start();
 
@@ -16,6 +18,21 @@ if (isset($_GET['logout'])) {
     //Redirige al usuario al inicio de sesión
     header("Location: ../../login.php");
     exit; 
+}
+
+//Realizamos la consulta para productos
+$sql = "SELECT * FROM productos";
+$result = $conn->query($sql);
+
+//Verificar si hay productos
+if ($result->num_rows > 0) {
+  //Almacena los productos en un array
+  $productos = array();
+  while ($row = $result->fetch_assoc()) {
+    $productos[] = $row;
+  }
+} else {
+  $productos = array(); //Si no hay productos, inicializar un array en 0
 }
 ?>
 <!DOCTYPE html>
@@ -112,142 +129,60 @@ if (isset($_GET['logout'])) {
         </div>
       </nav>
     </header>
-    <main>
-      <div class="container marketing">
-        <hr class="featurette-divider" />
+    main>
+      <div class="container marketing" style="margin-top: 50px;">
         <div class="row featurette">
           <div class="col text-center">
             <h2 class="featurette-heading mb-4" style="margin-top: 1px">
-              ¡ELIGE EL PRODUCTO QUE DESEAS COMPRAR!
+              PRODUCTOS
             </h2>
           </div>
         </div>
-        <!-- Primera fila de productos -->
-        <div class="row mb-4">
-          <div class="col-md-3 offset-md-1">
-            <img
-              src="../../img/productos/detergentes/sapolio_4kg.png"
-              alt="Sapolio 4kg"
-              class="img-fluid"
-            />
-            <h5 class="offset-md-2 text-black">SAPOLIO 4KG</h5>
-            <p class="offset-md-2">DETERGENTE - <strong>S/28.00</strong></p>
-            <button class="btn btn-FullClimsa-Secondary btn-lg offset-md-2 add-to-cart-btn">
-              Agregar
-            </button>
-          </div>
-          <div class="col-md-3 offset-md-1">
-            <img
-              src="../../img/productos/articulos/hude_rojo.png"
-              alt="Hude rojo"
-              class="img-fluid"
-            />
-            <h5 class="offset-md-2 text-black">HUDE ROJO</h5>
-            <p class="offset-md-2">LIMPIAVIDRIOS - <strong>S/15.50</strong></p>
-            <button class="btn btn-FullClimsa-Secondary btn-lg offset-md-2 add-to-cart-btn">
-              Agregar
-            </button>
-          </div>
-          <div class="col-md-3 offset-md-1">
-            <img
-              src="../../img/productos/jabon_liquido/aval_almendra_400ML.png"
-              alt="Jabón Liquido"
-              class="img-fluid"
-            />
-            <h5 class="offset-md-2 text-black">AVAL ALMENDRA 400 ML</h5>
-            <p class="offset-md-2">JABÓN LIQUIDO - <strong>S/6.00</strong>
-            </p>
-            <button class="btn btn-FullClimsa-Secondary btn-lg offset-md-2 add-to-cart-btn">
-              Agregar
-            </button>
-          </div>
+      <!-- Filtro por categoria -->
+      <div class="row mb-4">
+        <div class="col-md-6 offset-md-3">
+          <form>
+            <div class="input-group">
+              <select class="form-select" name="categoria" id="categoria">
+                <option value="">Todas las categorías</option>
+                <!-- Aquí puedes cargar dinámicamente las categorías desde la base de datos si lo deseas -->
+                <option value="categoria1">Categoría 1</option>
+                <option value="categoria2">Categoría 2</option>
+                <option value="categoria3">Categoría 3</option>
+              </select>
+              <button type="submit" class="btn btn-FullClimsa-Secondary">Filtrar</button>
+            </div>
+          </form>
         </div>
-
-        <!-- Segunda fila de productos -->
-        <div class="row mb-4">
-          <div class="col-md-3 offset-md-1">
-            <img
-              src="../../img/productos/shampoo/head_shoulders_375ML.png"
-              alt="Sapolio 4kg"
-              class="img-fluid"
-            />
-            <h5 class="offset-md-2 text-black">H&S 375 ML</h5>
-            <p class="offset-md-2">SHAMPOO - <strong>S/17.90</strong>
-            </p>
-            <button class="btn btn-FullClimsa-Secondary btn-lg offset-md-2 add-to-cart-btn">
-              Agregar
-            </button>
+      </div>
+      <!-- Mostrar productos -->
+      <div class="row">
+        <?php
+        // Iterar sobre la lista de productos y mostrar cada uno
+        foreach ($productos as $producto) {
+        ?>
+          <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <img class="bd-placeholder-img card-img-top" width="100%" src="../../img/uploads/<?php echo $producto['imagen']; ?>" alt="Producto">
+                <div class="card-body">
+                    <h3><?php echo $producto['nombre']; ?></h3>
+                    <h5 class="text-black"><?php echo $producto['categoria']; ?></h5>
+                    <p class="card-text"><?php echo $producto['descripcion']; ?></p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a href="login.php" type="button" class="btn btn-sm btn-FullClimsa-Secondary">Ver detalles</a>
+                        </div>
+                        <small class="text-muted">S/.<?php echo $producto['precio']; ?></small>
+                    </div>
+                </div>
+            </div>
           </div>
-          <div class="col-md-3 offset-md-1">
-            <img
-              src="../../img/productos/desinfectantes/mr_musculo_500ML.png"
-              alt="Hude rojo"
-              class="img-fluid"
-            />
-            <h5 class="offset-md-2 text-black">MR. MÚSCULO 500 ML</h5>
-            <p class="offset-md-2">DESINFECTANTE - <strong>S/17.00</strong>
-            </p>
-            <button class="btn btn-FullClimsa-Secondary btn-lg offset-md-2 add-to-cart-btn">
-              Agregar
-            </button>
-          </div>
-          <div class="col-md-3 offset-md-1">
-            <img
-              src="../../img/productos/articulos/hude_escobeta.png"
-              alt="Jabón Liquido"
-              class="img-fluid"
-            />
-            <h5 class="offset-md-2 text-black">HUDE ESCOBESTIA</h5>
-            <p class="offset-md-2">ESCOBA - <strong>S/19.50</strong>
-            </p>
-            <button class="btn btn-FullClimsa-Secondary btn-lg offset-md-2 add-to-cart-btn">
-              Agregar
-            </button>
-          </div>
-        </div>
-        <!-- Terecera fila de productos -->
-        <div class="row mb-5">
-          <div class="col-md-3 offset-md-1">
-            <img
-              src="../../img/productos/ambientadores/sapolio_1Galon.png"
-              alt="Sapolio 4kg"
-              class="img-fluid"
-            />
-            <h5 class="offset-md-2 text-black">SAPOLIO 1 GALÓN</h5>
-            <p class="offset-md-2">LIMPIA TODO - <strong>S/20.50</strong>
-            </p>
-            <button class="btn btn-FullClimsa-Secondary btn-lg offset-md-2 add-to-cart-btn">
-              Agregar
-            </button>
-          </div>
-          <div class="col-md-3 offset-md-1">
-            <img
-              src="../../img/productos/desinfectantes/sapolio_1L.png"
-              alt="Hude rojo"
-              class="img-fluid"
-            />
-            <h5 class="offset-md-2 text-black">SAPOLIO 1L</h5>
-            <p class="offset-md-2">LEJIA - <strong>S/4.40</strong></p>
-            <button class="btn btn-FullClimsa-Secondary btn-lg offset-md-2 add-to-cart-btn">
-              Agregar
-            </button>
-          </div>
-          <div class="col-md-3 offset-md-1">
-            <img
-              src="../../img/productos/desinfectantes/plop_forte_300ML.png"
-              alt="Jabón Liquido"
-              class="img-fluid"
-            />
-            <h5 class="offset-md-2 text-black">INSECTICIDA</h5>
-            <p class="offset-md-2">PLOP FORTE 300 ML - <strong>S/15.90</strong>
-            </p>
-            <button class="btn btn-FullClimsa-Secondary btn-lg offset-md-2 add-to-cart-btn">
-              Agregar
-            </button>
-          </div>
-        </div>
-        <hr class="featurette-divider" />
-        <!-- /END THE FEATURETTES -->
+        <?php
+        }
+        ?>
+      </div>
+      <hr class="featurette-divider" />
+      <!-- /END THE FEATURETTES -->
       </div>
     </main>
     <footer>
@@ -295,6 +230,5 @@ if (isset($_GET['logout'])) {
     integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
     crossorigin="anonymous"
   ></script>
-  <script src="../../assets/js/user/cart.js"></script>
   <script src="../../assets/js/bootstrap.bundle.min.js"></script>
 </html>

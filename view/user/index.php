@@ -287,135 +287,105 @@ if (isset($_GET['logout'])) {
             </h2>
           </div>
         </div>
-        <!-- Primera fila de productos -->
+       <!-- Primera fila de productos -->
         <div class="row mb-4">
           <div class="col-md-3 offset-md-1">
-            <img
-              src="../../img/productos/detergentes/sapolio_4kg.png"
-              alt="Sapolio 4kg"
-              class="img-fluid"
-            />
-            <h3 class="offset-md-2">DETERGENTE</h3>
-            <p class="offset-md-2">SAPOLIO 4KG - <strong>S/28.00</strong></p>
-              <a href="productos.php" class="btn btn-FullClimsa-Secondary btn-lg offset-md-2">
-                Agregar
-              </a>
+            <a href="productos.php">
+              <img
+                src="../../img/productos/detergentes/sapolio_4kg.png"
+                alt="Sapolio 4kg"
+                class="img-fluid"
+              />
+            </a>
+            <h3 class="offset-md-1">DETERGENTES</h3>
           </div>
           <div class="col-md-3 offset-md-1">
-            <img
-              src="../../img/productos/articulos/hude_rojo.png"
-              alt="Hude rojo"
-              class="img-fluid"
-            />
-            <h3 class="offset-md-2">LIMPIAVIDRIOS</h3>
-            <p class="offset-md-2">HUDE ROJO - <strong>S/15.50</strong></p>
-              <a href="productos.php" class="btn btn-FullClimsa-Secondary btn-lg offset-md-2">
-                Agregar
-              </a>
+            <a href="productos.php">
+              <img
+                src="../../img/productos/articulos/hude_rojo.png"
+                alt="Hude rojo"
+                class="img-fluid"
+              />
+            </a>
+            <h3 class="offset-md-1">LIMPIAVIDRIOS</h3>
           </div>
           <div class="col-md-3 offset-md-1">
-            <img
-              src="../../img/productos/jabon_liquido/aval_almendra_400ML.png"
-              alt="Jabón Liquido"
-              class="img-fluid"
-            />
-            <h3 class="offset-md-2">JABÓN LIQUIDO</h3>
-            <p class="offset-md-2">
-              AVAL ALMENDRA 400 ML - <strong>S/6.00</strong>
-            </p>
-              <a href="productos.php" class="btn btn-FullClimsa-Secondary btn-lg offset-md-2">
-                Agregar
-              </a>
+            <a href="productos.php">
+              <img
+                src="../../img/productos/jabon_liquido/aval_almendra_400ML.png"
+                alt="Jabón Liquido"
+                class="img-fluid"
+              />
+            </a>
+            <h3 class="offset-md-1">JABONES LIQUIDOS</h3>
           </div>
         </div>
 
         <!-- Segunda fila de productos -->
         <div class="row mb-4">
           <div class="col-md-3 offset-md-1">
-            <img
-              src="../../img/productos/shampoo/head_shoulders_375ML.png"
-              alt="Sapolio 4kg"
-              class="img-fluid"
-            />
+            <a href="productos.php">
+              <img
+                src="../../img/productos/shampoo/head_shoulders_375ML.png"
+                alt="Sapolio 4kg"
+                class="img-fluid"
+              />
+            </a>
             <h3 class="offset-md-2">SHAMPOO</h3>
-            <p class="offset-md-2">
-              HEAD&SHOULDERS 375 ML - <strong>S/17.90</strong>
-            </p>
-              <a href="productos.php" class="btn btn-FullClimsa-Secondary btn-lg offset-md-2">
-                Agregar
-              </a>
           </div>
           <div class="col-md-3 offset-md-1">
-            <img
-              src="../../img/productos/desinfectantes/mr_musculo_500ML.png"
-              alt="Hude rojo"
-              class="img-fluid"
-            />
-            <h3 class="offset-md-2">DESINFECTANTE</h3>
-            <p class="offset-md-2">
-              MR. MÚSCULO 500 ML - <strong>S/17.00</strong>
-            </p>
-              <a href="productos.php" class="btn btn-FullClimsa-Secondary btn-lg offset-md-2">
-                Agregar
-              </a>
+            <a href="productos.php">
+              <img
+                src="../../img/productos/desinfectantes/mr_musculo_500ML.png"
+                alt="Hude rojo"
+                class="img-fluid"
+              />
+            </a>
+            <h3 class="offset-md-1">DESINFECTANTES</h3>
           </div>
           <div class="col-md-3 offset-md-1">
-            <img
-              src="../../img/productos/articulos/hude_escobeta.png"
-              alt="Jabón Liquido"
-              class="img-fluid"
-            />
-            <h3 class="offset-md-2">ESCOBA</h3>
-            <p class="offset-md-2">
-              HUDE ESCOBESTIA - <strong>S/19.50</strong>
-            </p>
-              <a href="productos.php" class="btn btn-FullClimsa-Secondary btn-lg offset-md-2">
-                Agregar
-              </a>
+            <a href="productos.php">
+              <img
+                src="../../img/productos/articulos/hude_escobeta.png"
+                alt="Jabón Liquido"
+                class="img-fluid"
+              />
+            </a>
+            <h3 class="offset-md-1">ESCOBAS</h3>
           </div>
         </div>
 
         <!-- Terecera fila de productos -->
         <div class="row mb-5">
           <div class="col-md-3 offset-md-1">
-            <img
-              src="../../img/productos/ambientadores/sapolio_1Galon.png"
-              alt="Sapolio 4kg"
-              class="img-fluid"
-            />
+            <a href="productos.php">
+              <img
+                src="../../img/productos/ambientadores/sapolio_1Galon.png"
+                alt="Sapolio 4kg"
+                class="img-fluid"
+              />
+            </a>
             <h3 class="offset-md-2">LIMPIATODO</h3>
-            <p class="offset-md-2">
-              SAPOLIO 1 GALÓN - <strong>S/20.50</strong>
-            </p>
-              <a href="productos.php" class="btn btn-FullClimsa-Secondary btn-lg offset-md-2">
-                Agregar
-              </a>
           </div>
           <div class="col-md-3 offset-md-1">
-            <img
-              src="../../img/productos/desinfectantes/sapolio_1L.png"
-              alt="Hude rojo"
-              class="img-fluid"
-            />
-            <h3 class="offset-md-2">LEJIA</h3>
-            <p class="offset-md-2">SAPOLIO 1L - <strong>S/4.40</strong></p>
-              <a href="productos.php" class="btn btn-FullClimsa-Secondary btn-lg offset-md-2">
-                Agregar
-              </a>
+            <a href="productos.php">
+              <img
+                src="../../img/productos/desinfectantes/sapolio_1L.png"
+                alt="Hude rojo"
+                class="img-fluid"
+              />
+            </a>
+            <h3 class="offset-md-3">LEJIAS</h3>
           </div>
           <div class="col-md-3 offset-md-1">
-            <img
-              src="../../img/productos/desinfectantes/plop_forte_300ML.png"
-              alt="Jabón Liquido"
-              class="img-fluid"
-            />
-            <h3 class="offset-md-2">INSECTICIDA</h3>
-            <p class="offset-md-2">
-              PLOP FORTE 300 ML - <strong>S/15.90</strong>
-            </p>
-              <a href="productos.php" class="btn btn-FullClimsa-Secondary btn-lg offset-md-2">
-                Agregar
-              </a>
+            <a href="productos.php">
+              <img
+                src="../../img/productos/desinfectantes/plop_forte_300ML.png"
+                alt="Jabón Liquido"
+                class="img-fluid"
+              />
+            </a>
+            <h3 class="offset-md-1">INSECTICIDAS</h3>
           </div>
         </div>
         <hr class="featurette-divider" />
