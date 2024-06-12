@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($_SESSION['tipo'] == 'admin') {
             header("Location: ../view/admin/admin.php");
         } elseif ($_SESSION['tipo'] == 'usuario') {
-            header("Location: ../view/user/user.php");
+            header("Location: ../view/user/index.php");
         } else if ($_SESSION['tipo'] == 'empleado') {
             header("Location: ../view/empleado/empleado.php");
         }

@@ -1,3 +1,8 @@
+<?php
+//Verificamos conexion
+require_once("../../config/conexion.php");
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,7 +12,7 @@
     <!-- Icono de pestaña -->
     <link
       rel="shortcut icon"
-      href="img/icono/iconoPestaña.png"
+      href="../../img/icono/iconoPestaña.png"
       type="image/x-icon"
     />
     <!-- Bootstrap 5.0.2 -->
@@ -18,7 +23,7 @@
       crossorigin="anonymous"
     />
     <!-- Estilos pagina web -->
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="../../assets/css/style.css" />
     <!-- Iconos FontAwesome -->
     <link
       rel="stylesheet"
@@ -28,7 +33,7 @@
       referrerpolicy="no-referrer"
     />
     <!-- Sweet alert 2 -->
-    <link href="vendor/plugin/sweetalert2.min.css" rel="stylesheet" />
+    <link href="../../vendor/plugin/sweetalert2.min.css" rel="stylesheet" />
     <!-- Estilos imagen -->
     <style>
       .bd-placeholder-img {
@@ -77,7 +82,10 @@
                 <a class="nav-link" href="#">PRODUCTOS</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="login.php">INICIAR SESIÓN</a>
+                <a class="nav-link active"><?php echo $_SESSION['nombre']; ?></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../../auth/logout.php">CERRAR SESIÓN</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#"
@@ -95,7 +103,7 @@
           <div class="carousel-item active">
             <img
               class="bd-placeholder-img"
-              src="img/banner/Banner_5.png"
+              src="../../img/banner/Banner_5.png"
               alt="Banner 2"
             />
             <div class="container">
@@ -125,7 +133,7 @@
           <div class="col-md-5">
             <img
               class="img-nosotros"
-              src="img/nosotros/imagen_1.png"
+              src="../../img/nosotros/imagen_1.png"
               alt="Imagen 1"
             />
           </div>
@@ -148,7 +156,7 @@
           <div class="col-md-5 order-md-1">
             <img
               class="img-nosotros"
-              src="img/nosotros/imagen_2.png"
+              src="../../img/nosotros/imagen_2.png"
               alt="Imagen 1"
             />
           </div>
@@ -222,7 +230,7 @@
     integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
     crossorigin="anonymous"
   ></script>
-  <script src="assets/js/admin/consulta.js"></script>
-  <script src="assets/js/bootstrap.bundle.min.js"></script>
-  <script src="vendor/plugin/sweetalert2.all.min.js"></script>
+  <script src="../../assets/js/user/consulta.js"></script>
+  <script src="../../assets/js/bootstrap.bundle.min.js"></script>
+  <script src="../../vendor/plugin/sweetalert2.all.min.js"></script>
 </html>

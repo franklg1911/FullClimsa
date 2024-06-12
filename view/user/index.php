@@ -1,3 +1,8 @@
+<?php
+//Verificamos conexion
+require_once("../../config/conexion.php");
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,7 +12,7 @@
     <!-- Icono de pestaña -->
     <link
       rel="shortcut icon"
-      href="img/icono/iconoPestaña.png"
+      href="../../img/icono/iconoPestaña.png"
       type="image/x-icon"
     />
     <!-- Bootstrap 5.0.2 -->
@@ -18,7 +23,7 @@
       crossorigin="anonymous"
     />
     <!-- Estilos pagina web -->
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="../../assets/css/style.css" />
     <!-- Iconos FontAwesome -->
     <link
       rel="stylesheet"
@@ -44,7 +49,6 @@
       }
     </style>
   </head>
-
   <body>
     <header>
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-FullClimsa">
@@ -76,7 +80,10 @@
                 <a class="nav-link" href="#">PRODUCTOS</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="login.php">INICIAR SESIÓN</a>
+                <a class="nav-link active"><?php echo $_SESSION['nombre']; ?></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../../auth/logout.php">CERRAR SESIÓN</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#"
@@ -116,7 +123,7 @@
           <div class="carousel-item active">
             <img
               class="bd-placeholder-img"
-              src="img/banner/Banner_1.png"
+              src="../../img/banner/Banner_1.png"
               alt="Banner 1"
             />
             <div class="container">
@@ -129,7 +136,7 @@
           <div class="carousel-item">
             <img
               class="bd-placeholder-img"
-              src="img/banner/Banner_2.png"
+              src="../../img/banner/Banner_2.png"
               alt="Banner 2"
             />
 
@@ -148,7 +155,7 @@
           <div class="carousel-item">
             <img
               class="bd-placeholder-img"
-              src="img/banner/Banner_3.png"
+              src="../../img/banner/Banner_3.png"
               alt="Banner 3"
             />
 
@@ -189,7 +196,7 @@
           <div class="col-lg-4">
             <img
               class="categorias-img"
-              src="img/categorias/hogar.png"
+              src="../../img/categorias/hogar.png"
               alt="Hogar"
             />
             <h2>HOGAR</h2>
@@ -202,7 +209,7 @@
           <div class="col-lg-4">
             <img
               class="categorias-img"
-              src="img/categorias/ropa.png"
+              src="../../img/categorias/ropa.png"
               alt="Ropa"
             />
 
@@ -216,7 +223,7 @@
           <div class="col-lg-4">
             <img
               class="categorias-img"
-              src="img/categorias/ambientadores.png"
+              src="../../img/categorias/ambientadores.png"
               alt="Ropa"
             />
             <h2>AMBIENTADORES</h2>
@@ -252,7 +259,7 @@
           <div class="col-md-5">
             <img
               class="img-banner-4"
-              src="img/banner/Banner_4.png"
+              src="../../img/banner/Banner_4.png"
               alt="Banner 4"
             />
           </div>
@@ -269,7 +276,7 @@
         <div class="row mb-4">
           <div class="col-md-3 offset-md-1">
             <img
-              src="img/productos/detergentes/sapolio_4kg.png"
+              src="../../img/productos/detergentes/sapolio_4kg.png"
               alt="Sapolio 4kg"
               class="img-fluid"
             />
@@ -281,7 +288,7 @@
           </div>
           <div class="col-md-3 offset-md-1">
             <img
-              src="img/productos/articulos/hude_rojo.png"
+              src="../../img/productos/articulos/hude_rojo.png"
               alt="Hude rojo"
               class="img-fluid"
             />
@@ -293,7 +300,7 @@
           </div>
           <div class="col-md-3 offset-md-1">
             <img
-              src="img/productos/jabon_liquido/aval_almendra_400ML.png"
+              src="../../img/productos/jabon_liquido/aval_almendra_400ML.png"
               alt="Jabón Liquido"
               class="img-fluid"
             />
@@ -311,7 +318,7 @@
         <div class="row mb-4">
           <div class="col-md-3 offset-md-1">
             <img
-              src="img/productos/shampoo/head_shoulders_375ML.png"
+              src="../../img/productos/shampoo/head_shoulders_375ML.png"
               alt="Sapolio 4kg"
               class="img-fluid"
             />
@@ -325,7 +332,7 @@
           </div>
           <div class="col-md-3 offset-md-1">
             <img
-              src="img/productos/desinfectantes/mr_musculo_500ML.png"
+              src="../../img/productos/desinfectantes/mr_musculo_500ML.png"
               alt="Hude rojo"
               class="img-fluid"
             />
@@ -339,7 +346,7 @@
           </div>
           <div class="col-md-3 offset-md-1">
             <img
-              src="img/productos/articulos/hude_escobeta.png"
+              src="../../img/productos/articulos/hude_escobeta.png"
               alt="Jabón Liquido"
               class="img-fluid"
             />
@@ -357,7 +364,7 @@
         <div class="row mb-5">
           <div class="col-md-3 offset-md-1">
             <img
-              src="img/productos/ambientadores/sapolio_1Galon.png"
+              src="../../img/productos/ambientadores/sapolio_1Galon.png"
               alt="Sapolio 4kg"
               class="img-fluid"
             />
@@ -371,7 +378,7 @@
           </div>
           <div class="col-md-3 offset-md-1">
             <img
-              src="img/productos/desinfectantes/sapolio_1L.png"
+              src="../../img/productos/desinfectantes/sapolio_1L.png"
               alt="Hude rojo"
               class="img-fluid"
             />
@@ -383,7 +390,7 @@
           </div>
           <div class="col-md-3 offset-md-1">
             <img
-              src="img/productos/desinfectantes/plop_forte_300ML.png"
+              src="../../img/productos/desinfectantes/plop_forte_300ML.png"
               alt="Jabón Liquido"
               class="img-fluid"
             />
@@ -443,5 +450,5 @@
     integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
     crossorigin="anonymous"
   ></script>
-  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="../../assets/js/bootstrap.bundle.min.js"></script>
 </html>
