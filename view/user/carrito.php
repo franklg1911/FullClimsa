@@ -1,3 +1,23 @@
+<?php
+//Iniciar sesión 
+session_start();
+
+//Verificar si se ha echo click en "salir"
+if (!isset($_SESSION['id'])) {
+    //Redirige al usuario a la página login.php
+    header("Location: ../../login.php");
+    exit; 
+}
+
+//Verificar si se ha echo click en "salir"
+if (isset($_GET['logout'])) {
+    //Destruimos la sesión
+    session_destroy();
+    //Redirige al usuario al inicio de sesión
+    header("Location: ../../login.php");
+    exit; 
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,7 +27,7 @@
     <!-- Icono de pestaña -->
     <link
       rel="shortcut icon"
-      href="img/icono/iconoPestaña.png"
+      href="../../img/icono/iconoPestaña.png"
       type="image/x-icon"
     />
     <!-- Bootstrap 5.0.2 -->
@@ -18,7 +38,7 @@
       crossorigin="anonymous"
     />
     <!-- Estilos pagina web -->
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="../../assets/css/style.css" />
     <!-- Iconos FontAwesome -->
     <link
       rel="stylesheet"
@@ -27,6 +47,22 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <!-- Estilos imagen -->
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
   </head>
   <body>
     <header>
@@ -35,6 +71,7 @@
           <a class="navbar-brand" href="index.php">FULLCLIMSA</a>
           <button
             class="navbar-toggler"
+            !
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarCollapse"
@@ -58,54 +95,44 @@
                 <a class="nav-link" href="productos.php">PRODUCTOS</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="login.php">INICIAR SESIÓN</a>
+                <a class="nav-link active"><?php echo $_SESSION['nombre']; ?></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#"
-                  ><i class="fa-solid fa-cart-shopping"></i
-                ></a>
+                <a class="nav-link" href="?logout=1">CERRAR SESIÓN</a>
+              </li>              
+              <li class="nav-item">
+                <a class="nav-link active" href="#">
+                  <i class="fa-solid fa-cart-shopping"></i>
+                  <span id="cart-counter">0</span>
+                </a>
               </li>
             </ul>
           </div>
         </div>
       </nav>
     </header>
-    <main class="form-signin">
-      <form action="auth/autenticar.php" method="POST">
-        <h1 class="h3 mb-3 fw-bold">INICIAR SESIÓN</h1>
-        <div class="form-floating">
-          <input
-            type="usuario"
-            class="form-control"
-            id="usuario"
-            name="usuario"
-            placeholder="Usuario"
-            autocomplete="off"
-          />
-          <label for="floatingInput">Usuario o Correo</label>
+    <main>
+      <div class="container marketing">
+        <hr class="featurette-divider" />
+        <div class="row featurette">
+          <div class="col text-center">
+            <h2 class="featurette-heading mb-4" style="margin-top: 1px">
+              CARRITO DE COMPRAS
+            </h2>
+          </div>
         </div>
-        <div class="form-floating">
-          <input
-            type="password"
-            class="form-control"
-            id="contraseña"
-            name="contraseña"
-            placeholder="Contraseña"
-            autocomplete="off"
-          />
-          <label for="floatingPassword">Contraseña</label>
+        <div id="cart-items" class="mb-4">
+            <!-- Aquí se mostrarán los productos del carrito -->
         </div>
-        <button class="w-100 btn btn-lg btn-FullClimsa-Secondary" type="submit">
-          Ingresar
-        </button>
-        <p class="mt-3 text-center" style="color: black">
-          ¿NO TIENES UNA CUENTA?
-          <a href="register.php" style="color: #3f00fb">REGISTRATE</a>
-        </p>
-      </form>
-    </main>
-    <hr class="featurette-divider" />
+        <div class="d-flex justify-content-between align-items-center">
+            <h3>Total: <span id="cart-total">S/0.00</span></h3>
+            <button class="btn btn-success">Proceder al Pago</button>
+        </div>
 
+        <hr class="featurette-divider" />
+        <!-- /END THE FEATURETTES -->
+      </div>
+    </main>
     <footer>
       <div class="container">
         <div class="row">
@@ -149,5 +176,6 @@
     integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
     crossorigin="anonymous"
   ></script>
-  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="../../assets/js/user/cart.js"></script>
+  <script src="../../assets/js/bootstrap.bundle.min.js"></script>
 </html>

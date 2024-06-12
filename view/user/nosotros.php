@@ -1,7 +1,22 @@
 <?php
-//Verificamos conexion
-require_once("../../config/conexion.php");
+//Iniciar sesión 
 session_start();
+
+//Verificar si se ha echo click en "salir"
+if (!isset($_SESSION['id'])) {
+    //Redirige al usuario a la página login.php
+    header("Location: ../../login.php");
+    exit; 
+}
+
+//Verificar si se ha echo click en "salir"
+if (isset($_GET['logout'])) {
+    //Destruimos la sesión
+    session_destroy();
+    //Redirige al usuario al inicio de sesión
+    header("Location: ../../login.php");
+    exit; 
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -79,13 +94,13 @@ session_start();
                 <a class="nav-link active" href="nosotros.php">NOSOTROS</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">PRODUCTOS</a>
+                <a class="nav-link" href="productos.php">PRODUCTOS</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link active"><?php echo $_SESSION['nombre']; ?></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="../../auth/logout.php">CERRAR SESIÓN</a>
+                <a class="nav-link" href="?logout=1">CERRAR SESIÓN</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#"
@@ -218,6 +233,7 @@ session_start();
       </div>
     </footer>
   </body>
+  <!-- Jquery -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <!-- Bootstrap 5.0.2 -->
   <script

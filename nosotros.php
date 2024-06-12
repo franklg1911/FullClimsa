@@ -74,7 +74,7 @@
                 <a class="nav-link active" href="nosotros.php">NOSOTROS</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">PRODUCTOS</a>
+                <a class="nav-link" href="productos.php">PRODUCTOS</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="login.php">INICIAR SESIÓN</a>

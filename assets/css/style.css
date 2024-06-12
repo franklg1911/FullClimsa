@@ -13,6 +13,24 @@ h1{
   font-weight: bold;
 }
 
+form h1 {
+  color: #000000;
+  text-align: center;
+}
+
+form label {
+  color: #000000;
+  font-size: 15px;
+}
+
+form p {
+  font-size: 13px;
+}
+
+footer h3 {
+  color: #000000;
+}
+
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
 
@@ -103,10 +121,6 @@ h1{
   margin-left: .75rem;
 }
 
-footer h3{
-  color: #000000;
-}
-
 .social-icons {
   display: inline-flex;
   justify-content: center;
@@ -160,18 +174,10 @@ footer h3{
   border-top-right-radius: 0;
 }
 
-form h1 {
-  color: #000000;
-  text-align: center;
-}
 
-form label {
+.text-black{
   color: #000000;
-  font-size: 15px;
-}
-
-form p{
-  font-size: 13px;
+  font-weight: bold;
 }
 
 /* Featurettes

@@ -1,7 +1,22 @@
 <?php
-//Verificamos conexion
-require_once("../../config/conexion.php");
+//Iniciar sesión 
 session_start();
+
+//Verificar si se ha echo click en "salir"
+if (!isset($_SESSION['id'])) {
+    //Redirige al usuario a la página login.php
+    header("Location: ../../login.php");
+    exit; 
+}
+
+//Verificar si se ha echo click en "salir"
+if (isset($_GET['logout'])) {
+    //Destruimos la sesión
+    session_destroy();
+    //Redirige al usuario al inicio de sesión
+    header("Location: ../../login.php");
+    exit; 
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -77,13 +92,13 @@ session_start();
                 <a class="nav-link" href="nosotros.php">NOSOTROS</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">PRODUCTOS</a>
+                <a class="nav-link" href="productos.php">PRODUCTOS</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link active"><?php echo $_SESSION['nombre']; ?></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="../../auth/logout.php">CERRAR SESIÓN</a>
+                <a class="nav-link" href="?logout=1">CERRAR SESIÓN</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#"
@@ -282,9 +297,9 @@ session_start();
             />
             <h3 class="offset-md-2">DETERGENTE</h3>
             <p class="offset-md-2">SAPOLIO 4KG - <strong>S/28.00</strong></p>
-            <button class="btn btn-FullClimsa-Secondary btn-lg offset-md-2">
-              Agregar
-            </button>
+              <a href="productos.php" class="btn btn-FullClimsa-Secondary btn-lg offset-md-2">
+                Agregar
+              </a>
           </div>
           <div class="col-md-3 offset-md-1">
             <img
@@ -294,9 +309,9 @@ session_start();
             />
             <h3 class="offset-md-2">LIMPIAVIDRIOS</h3>
             <p class="offset-md-2">HUDE ROJO - <strong>S/15.50</strong></p>
-            <button class="btn btn-FullClimsa-Secondary btn-lg offset-md-2">
-              Agregar
-            </button>
+              <a href="productos.php" class="btn btn-FullClimsa-Secondary btn-lg offset-md-2">
+                Agregar
+              </a>
           </div>
           <div class="col-md-3 offset-md-1">
             <img
@@ -308,9 +323,9 @@ session_start();
             <p class="offset-md-2">
               AVAL ALMENDRA 400 ML - <strong>S/6.00</strong>
             </p>
-            <button class="btn btn-FullClimsa-Secondary btn-lg offset-md-2">
-              Agregar
-            </button>
+              <a href="productos.php" class="btn btn-FullClimsa-Secondary btn-lg offset-md-2">
+                Agregar
+              </a>
           </div>
         </div>
 
@@ -326,9 +341,9 @@ session_start();
             <p class="offset-md-2">
               HEAD&SHOULDERS 375 ML - <strong>S/17.90</strong>
             </p>
-            <button class="btn btn-FullClimsa-Secondary btn-lg offset-md-2">
-              Agregar
-            </button>
+              <a href="productos.php" class="btn btn-FullClimsa-Secondary btn-lg offset-md-2">
+                Agregar
+              </a>
           </div>
           <div class="col-md-3 offset-md-1">
             <img
@@ -340,9 +355,9 @@ session_start();
             <p class="offset-md-2">
               MR. MÚSCULO 500 ML - <strong>S/17.00</strong>
             </p>
-            <button class="btn btn-FullClimsa-Secondary btn-lg offset-md-2">
-              Agregar
-            </button>
+              <a href="productos.php" class="btn btn-FullClimsa-Secondary btn-lg offset-md-2">
+                Agregar
+              </a>
           </div>
           <div class="col-md-3 offset-md-1">
             <img
@@ -354,9 +369,9 @@ session_start();
             <p class="offset-md-2">
               HUDE ESCOBESTIA - <strong>S/19.50</strong>
             </p>
-            <button class="btn btn-FullClimsa-Secondary btn-lg offset-md-2">
-              Agregar
-            </button>
+              <a href="productos.php" class="btn btn-FullClimsa-Secondary btn-lg offset-md-2">
+                Agregar
+              </a>
           </div>
         </div>
 
@@ -372,9 +387,9 @@ session_start();
             <p class="offset-md-2">
               SAPOLIO 1 GALÓN - <strong>S/20.50</strong>
             </p>
-            <button class="btn btn-FullClimsa-Secondary btn-lg offset-md-2">
-              Agregar
-            </button>
+              <a href="productos.php" class="btn btn-FullClimsa-Secondary btn-lg offset-md-2">
+                Agregar
+              </a>
           </div>
           <div class="col-md-3 offset-md-1">
             <img
@@ -384,9 +399,9 @@ session_start();
             />
             <h3 class="offset-md-2">LEJIA</h3>
             <p class="offset-md-2">SAPOLIO 1L - <strong>S/4.40</strong></p>
-            <button class="btn btn-FullClimsa-Secondary btn-lg offset-md-2">
-              Agregar
-            </button>
+              <a href="productos.php" class="btn btn-FullClimsa-Secondary btn-lg offset-md-2">
+                Agregar
+              </a>
           </div>
           <div class="col-md-3 offset-md-1">
             <img
@@ -398,9 +413,9 @@ session_start();
             <p class="offset-md-2">
               PLOP FORTE 300 ML - <strong>S/15.90</strong>
             </p>
-            <button class="btn btn-FullClimsa-Secondary btn-lg offset-md-2">
-              Agregar
-            </button>
+              <a href="productos.php" class="btn btn-FullClimsa-Secondary btn-lg offset-md-2">
+                Agregar
+              </a>
           </div>
         </div>
         <hr class="featurette-divider" />

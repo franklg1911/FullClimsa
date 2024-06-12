@@ -65,7 +65,7 @@
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav ms-auto mb-2 mb-md-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index.php"
+                <a class="nav-link" aria-current="page" href="index.php"
                   >INICIO</a
                 >
               </li>
@@ -73,7 +73,7 @@
                 <a class="nav-link" href="nosotros.php">NOSOTROS</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="productos.php">PRODUCTOS</a>
+                <a class="nav-link active" href="productos.php">PRODUCTOS</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="login.php">INICIAR SESIÓN</a>
@@ -89,179 +89,12 @@
       </nav>
     </header>
     <main>
-      <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-          <button
-            type="button"
-            data-bs-target="#myCarousel"
-            data-bs-slide-to="0"
-            class="active"
-            aria-current="true"
-            aria-label="Slide 1"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#myCarousel"
-            data-bs-slide-to="1"
-            aria-label="Slide 2"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#myCarousel"
-            data-bs-slide-to="2"
-            aria-label="Slide 3"
-          ></button>
-        </div>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img
-              class="bd-placeholder-img"
-              src="img/banner/Banner_1.png"
-              alt="Banner 1"
-            />
-            <div class="container">
-              <div class="carousel-caption text-start">
-                <h1>LIMPIEZA EFICAZ</h1>
-                <p>Nuestros productos de limpieza lo hacen todo</p>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img
-              class="bd-placeholder-img"
-              src="img/banner/Banner_2.png"
-              alt="Banner 2"
-            />
-
-            <div class="container">
-              <div class="carousel-caption">
-                <h1>Productos</h1>
-                <p>Explora nuestra amplia selección de productos de limpieza</p>
-                <p>
-                  <a class="btn btn-lg btn-FullClimsa-Secondary" href="#"
-                    >Ver más</a
-                  >
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img
-              class="bd-placeholder-img"
-              src="img/banner/Banner_3.png"
-              alt="Banner 3"
-            />
-
-            <div class="container">
-              <div class="carousel-caption text-end">
-                <h1>CONSULTAR</h1>
-                <p>CONSULTA Y DESCARGA TU FACTURA DE COMPRA</p>
-                <p>
-                  <a class="btn btn-lg btn-FullClimsa-Secondary" href="#"
-                    >INGRESAR</a
-                  >
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <button
-          class="carousel-control-prev"
-          type="button"
-          data-bs-target="#myCarousel"
-          data-bs-slide="prev"
-        >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button
-          class="carousel-control-next"
-          type="button"
-          data-bs-target="#myCarousel"
-          data-bs-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
       <div class="container marketing">
-        <div class="row">
-          <div class="col-lg-4">
-            <img
-              class="categorias-img"
-              src="img/categorias/hogar.png"
-              alt="Hogar"
-            />
-            <h2>HOGAR</h2>
-            <p>
-              Descubre nuestra línea completa de productos de limpieza para el
-              hogar, diseñados
-            </p>
-          </div>
-          <!-- /.col-lg-4 -->
-          <div class="col-lg-4">
-            <img
-              class="categorias-img"
-              src="img/categorias/ropa.png"
-              alt="Ropa"
-            />
-
-            <h2>ROPA</h2>
-            <p>
-              Nuestra gama de productos de limpieza para ropa está diseñada para
-              cuidar y renovar tus prendas
-            </p>
-          </div>
-          <!-- /.col-lg-4 -->
-          <div class="col-lg-4">
-            <img
-              class="categorias-img"
-              src="img/categorias/ambientadores.png"
-              alt="Ropa"
-            />
-            <h2>AMBIENTADORES</h2>
-            <p>
-              Transforma tu hogar con nuestra línea de ambientadores, creados
-              para proporcionar fragancias duraderas.
-            </p>
-          </div>
-          <!-- /.col-lg-4 -->
-        </div>
-        <!-- /.row -->
-
-        <!-- START THE FEATURETTES -->
-
-        <hr class="featurette-divider" />
-
-        <div class="row featurette">
-          <div class="col-md-7">
-            <h2 class="featurette-heading">¿QUÉ OFRECEMOS?</h2>
-            <p class="lead">
-              La empresa FULLCLIMSA es un proveedor de productos de limpieza de
-              alta calidad para hogares, instituciones y empresas. Ofrecemos una
-              amplia gama de soluciones, incluyendo productos para el hogar,
-              limpieza institucional, productos ecológicos, y servicio de
-              entrega. Nuestro compromiso es proporcionar productos efectivos y
-              confiables para mantener espacios limpios, seguros con un enfoque
-              en la calidad y la sostenibilidad ambiental.
-            </p>
-            <a href="nosotros.php" class="btn btn-FullClimsa-Secondary btn-lg"
-              >Ver más</a
-            >
-          </div>
-          <div class="col-md-5">
-            <img
-              class="img-banner-4"
-              src="img/banner/Banner_4.png"
-              alt="Banner 4"
-            />
-          </div>
-        </div>
         <hr class="featurette-divider" />
         <div class="row featurette">
           <div class="col text-center">
             <h2 class="featurette-heading mb-4" style="margin-top: 1px">
-              ¡LOS MEJORES PRODUCTOS!
+              ¡COMPRA UNA VARIEDAD DE PRODUCTOS!
             </h2>
           </div>
         </div>
