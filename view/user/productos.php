@@ -1,5 +1,7 @@
 <?php
 require_once("../../config/conexion.php");
+require_once("../../controller/admin/consultarProducto.php");
+require_once("../../controller/admin/filtrarCategoria.php");
 
 //Iniciar sesión 
 session_start();
@@ -18,21 +20,6 @@ if (isset($_GET['logout'])) {
     //Redirige al usuario al inicio de sesión
     header("Location: ../../login.php");
     exit; 
-}
-
-//Realizamos la consulta para productos
-$sql = "SELECT * FROM productos";
-$result = $conn->query($sql);
-
-//Verificar si hay productos
-if ($result->num_rows > 0) {
-  //Almacena los productos en un array
-  $productos = array();
-  while ($row = $result->fetch_assoc()) {
-    $productos[] = $row;
-  }
-} else {
-  $productos = array(); //Si no hay productos, inicializar un array en 0
 }
 ?>
 <!DOCTYPE html>
@@ -143,12 +130,19 @@ if ($result->num_rows > 0) {
         <div class="col-md-6 offset-md-3">
           <form>
             <div class="input-group">
-              <select class="form-select" name="categoria" id="categoria">
+              <select name="categoria" id="categoria" class="form-select">
                 <option value="">Todas las categorías</option>
-                <!-- Aquí puedes cargar dinámicamente las categorías desde la base de datos si lo deseas -->
-                <option value="categoria1">Categoría 1</option>
-                <option value="categoria2">Categoría 2</option>
-                <option value="categoria3">Categoría 3</option>
+                  <?php
+                    // Obtener categorías disponibles
+                    $sql_categorias = "SELECT DISTINCT categoria FROM productos";
+                    $result_categorias = $conn->query($sql_categorias);
+
+                    if ($result_categorias->num_rows > 0) {
+                      while ($row_categoria = $result_categorias->fetch_assoc()) {
+                        echo '<option value="' . $row_categoria['categoria'] . '">' . $row_categoria['categoria'] . '</option>';
+                      }
+                    }
+                  ?>
               </select>
               <button type="submit" class="btn btn-FullClimsa-Secondary">Filtrar</button>
             </div>
@@ -170,7 +164,8 @@ if ($result->num_rows > 0) {
                     <p class="card-text"><?php echo $producto['descripcion']; ?></p>
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
-                            <a href="login.php" type="button" class="btn btn-sm btn-FullClimsa-Secondary">Ver detalles</a>
+                            <button type="button" class="btn btn-sm btn-FullClimsa-Secondary agregar-btn" data-producto-id="<?php echo $producto['id']; ?>">Agregar</button>
+                            <button type="button" class="btn btn-sm btn-danger quitar-btn" style="display:none;" data-producto-id="<?php echo $producto['id']; ?>">Quitar</button>
                         </div>
                         <small class="text-muted">S/.<?php echo $producto['precio']; ?></small>
                     </div>
@@ -230,5 +225,6 @@ if ($result->num_rows > 0) {
     integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
     crossorigin="anonymous"
   ></script>
+  <script src="../../assets/js/admin/carrito.js"></script>
   <script src="../../assets/js/bootstrap.bundle.min.js"></script>
 </html>

@@ -1,20 +1,6 @@
 <?php
-require_once("config/conexion.php");
-
-//Realizamos la consulta
-$sql = "SELECT * FROM productos";
-$result = $conn->query($sql);
-
-//Verificar si hay productos
-if ($result->num_rows > 0) {
-  //Almacena los productos en un array
-  $productos = array();
-  while ($row = $result->fetch_assoc()) {
-    $productos[] = $row;
-  }
-} else {
-  $productos = array(); //Si no hay productos, inicializar un array en 0
-}
+require_once("controller/consultarProducto.php");
+require_once("controller/filtrarCategoria.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -120,12 +106,19 @@ if ($result->num_rows > 0) {
         <div class="col-md-6 offset-md-3">
           <form>
             <div class="input-group">
-              <select class="form-select" name="categoria" id="categoria">
+              <select name="categoria" id="categoria" class="form-select">
                 <option value="">Todas las categorías</option>
-                <!-- Aquí puedes cargar dinámicamente las categorías desde la base de datos si lo deseas -->
-                <option value="categoria1">Categoría 1</option>
-                <option value="categoria2">Categoría 2</option>
-                <option value="categoria3">Categoría 3</option>
+                  <?php
+                    // Obtener categorías disponibles
+                    $sql_categorias = "SELECT DISTINCT categoria FROM productos";
+                    $result_categorias = $conn->query($sql_categorias);
+
+                    if ($result_categorias->num_rows > 0) {
+                      while ($row_categoria = $result_categorias->fetch_assoc()) {
+                        echo '<option value="' . $row_categoria['categoria'] . '">' . $row_categoria['categoria'] . '</option>';
+                      }
+                    }
+                  ?>
               </select>
               <button type="submit" class="btn btn-FullClimsa-Secondary">Filtrar</button>
             </div>
