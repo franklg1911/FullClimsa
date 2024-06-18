@@ -194,7 +194,7 @@ if (isset($_GET['logout'])) {
                             <th>Nombre</th>
                             <th>Descripción</th>
                             <th>Precio</th>
-                            <th>Eliminar</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -204,7 +204,7 @@ if (isset($_GET['logout'])) {
                         <tr>
                             <td colspan="2"></td>
                             <td style="font-weight: bold">Total:</td>
-                            <td style="font-weight: bold">S/.0</td>
+                            <td style="font-weight: bold">S/.0.00</td>
                         </tr>
                     </tfoot>
                 </table>

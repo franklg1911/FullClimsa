@@ -1,33 +1,73 @@
-  $(document).ready(function() {
+$(document).ready(function() {
     var carrito = [];
 
-    // Función para agregar producto al icono de carrito contador
+    // Función para agregar producto al carrito
     $('.agregar-btn').click(function() {
-      var productoId = $(this).data('producto-id');
-      carrito.push(productoId);
-      actualizarCarrito();
+        var productoId = $(this).data('producto-id');
+
+        $.ajax({
+            type: 'POST',
+            url: '../../controller/agregarCarrito.php', 
+            data: { producto_id: productoId }, 
+            dataType: 'json',
+            success: function(response) {
+                if (response.success) {
+                    agregarProductoAlCarrito(response.producto);
+                    console.log(response.message);
+                } else {
+                    console.error('Error al agregar producto:', response.message);
+                }
+            },
+        });
     });
 
-    // Función para quitar producto del icono de carrito contador
-    $('.quitar-btn').click(function() {
-      var productoId = $(this).data('producto-id');
-      var index = carrito.indexOf(productoId);
-      if (index !== -1) {
-        carrito.splice(index, 1);
-        actualizarCarrito();
-      }
-    });
+    // Función para agregar el producto a la tabla del carrito
+    function agregarProductoAlCarrito(producto) {
+        carrito.push(producto); // Agregar el producto al arreglo carrito
+
+        var fila = `
+            <tr>
+                <td>${producto.nombre}</td>
+                <td>${producto.descripcion}</td>
+                <td>S/.${producto.precio}</td>
+                <td><button class="btn btn-danger eliminar-btn">Eliminar</button></td>
+            </tr>
+        `;
+        $('#tablaCarrito tbody').append(fila);
+
+        // Actualizar total del carrito
+        calcularTotalCarrito();
+
+        // Actualizar contador de productos en el carrito
+        actualizarContadorCarrito();
+    }
+
+    // Función para calcular el total del carrito
+    function calcularTotalCarrito() {
+        var total = 0;
+        carrito.forEach(function(producto) {
+            total += parseFloat(producto.precio);
+        });
+        $('#tablaCarrito tfoot td:eq(3)').text('S/.' + total.toFixed(2));
+    }
 
     // Función para actualizar el contador del carrito
-    function actualizarCarrito() {
-      var cantidadProductos = carrito.length;
-      $('#cart-counter').text(cantidadProductos);
+    function actualizarContadorCarrito() {
+        var cantidadProductos = carrito.length;
+        $('#cart-counter').text(cantidadProductos);
 
-      // Mostrar/ocultar botones de quitar según el estado del carrito
-      $('.quitar-btn').hide();
-      carrito.forEach(function(productoId) {
-        $('.quitar-btn[data-producto-id="' + productoId + '"]').show();
-      });
+        $('.quitar-btn').hide();
+        carrito.forEach(function(producto) {
+            $('.quitar-btn[data-producto-id="' + producto.id + '"]').show();
+        });
     }
-  });
 
+    // Función para quitar producto del carrito
+    $(document).on('click', '.eliminar-btn', function() {
+        var index = $(this).closest('tr').index();
+        carrito.splice(index, 1);
+        $(this).closest('tr').remove();
+        calcularTotalCarrito();
+        actualizarContadorCarrito();
+    });
+});
