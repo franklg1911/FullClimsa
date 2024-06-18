@@ -106,7 +106,7 @@ if (isset($_GET['logout'])) {
                 <a class="nav-link" href="?logout=1">CERRAR SESIÓN</a>
               </li>              
               <li class="nav-item">
-                <a class="nav-link active" id="cart-link" style="cursor: pointer">
+                <a class="nav-link active" id="cart-link" href="carrito.php">
                   <i class="fa-solid fa-cart-shopping"></i>
                   <span id="cart-counter">0</span>
                 </a>
@@ -116,7 +116,7 @@ if (isset($_GET['logout'])) {
         </div>
       </nav>
     </header>
-    main>
+    <main>
       <div class="container marketing" style="margin-top: 50px;">
         <div class="row featurette">
           <div class="col text-center">
@@ -177,7 +177,45 @@ if (isset($_GET['logout'])) {
         ?>
       </div>
       <hr class="featurette-divider" />
-      <!-- /END THE FEATURETTES -->
+      <div class="container marketing" style="margin-top: 50px;">
+        <div class="row featurette">
+          <div class="col text-center">
+            <h2 class="featurette-heading mb-4" style="margin-top: 1px">
+              CARRITO DE COMPRA
+            </h2>
+          </div>
+        </div>
+        <!-- Carrito de compras -->
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-bordered" id="tablaCarrito">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Descripción</th>
+                            <th>Precio</th>
+                            <th>Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <!-- Aqui se mostrarán los productos agregados -->
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="2"></td>
+                            <td style="font-weight: bold">Total:</td>
+                            <td style="font-weight: bold">S/.0</td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <div class="row mt-3">
+                  <div class="col text-end">
+                    <button class="btn btn-FullClimsa-Secondary">Terminar Compra</button>
+                  </div>
+                </div>
+            </div>
+        </div>
+      <hr class="featurette-divider" />
       </div>
     </main>
     <footer>
