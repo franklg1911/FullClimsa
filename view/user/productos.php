@@ -164,8 +164,8 @@ if (isset($_GET['logout'])) {
                     <p class="card-text"><?php echo $producto['descripcion']; ?></p>
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-FullClimsa-Secondary agregar-btn" data-producto-id="<?php echo $producto['id']; ?>">Agregar</button>
-                            <button type="button" class="btn btn-sm btn-danger quitar-btn" style="display:none;" data-producto-id="<?php echo $producto['id']; ?>">Quitar</button>
+                            <button type="button" class="btn btn-sm btn-FullClimsa-Secondary">Agregar</button>
+                            <button type="button" class="btn btn-sm btn-danger quitar-btn">Quitar</button>
                         </div>
                         <small class="text-muted">S/.<?php echo $producto['precio']; ?></small>
                     </div>
@@ -176,45 +176,6 @@ if (isset($_GET['logout'])) {
         }
         ?>
       </div>
-      <hr class="featurette-divider" />
-      <div class="container marketing" style="margin-top: 50px;">
-        <div class="row featurette">
-          <div class="col text-center">
-            <h2 class="featurette-heading mb-4" style="margin-top: 1px">
-              CARRITO DE COMPRA
-            </h2>
-          </div>
-        </div>
-        <!-- Carrito de compras -->
-        <div class="row">
-            <div class="col-12">
-                <table class="table table-bordered" id="tablaCarrito">
-                    <thead>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Descripción</th>
-                            <th>Precio</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <!-- Aqui se mostrarán los productos agregados -->
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colspan="2"></td>
-                            <td style="font-weight: bold">Total:</td>
-                            <td style="font-weight: bold">S/.0.00</td>
-                        </tr>
-                    </tfoot>
-                </table>
-                <div class="row mt-3">
-                  <div class="col text-end">
-                    <button class="btn btn-FullClimsa-Secondary">Terminar Compra</button>
-                  </div>
-                </div>
-            </div>
-        </div>
       <hr class="featurette-divider" />
       </div>
     </main>
