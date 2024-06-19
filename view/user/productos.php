@@ -107,8 +107,8 @@ if (isset($_GET['logout'])) {
               </li>              
               <li class="nav-item">
                 <a class="nav-link active" id="cart-link" href="carrito.php">
+                  <span id="cart-counter">VER CARRITO</span>
                   <i class="fa-solid fa-cart-shopping"></i>
-                  <span id="cart-counter">0</span>
                 </a>
               </li>
             </ul>
@@ -156,7 +156,7 @@ if (isset($_GET['logout'])) {
         foreach ($productos as $producto) {
         ?>
           <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
+            <div class="card mb-4 shadow-sm" data-product-id="<?php echo $producto['id']; ?>">
                 <img class="bd-placeholder-img card-img-top" width="100%" src="../../img/uploads/<?php echo $producto['imagen']; ?>" alt="Producto">
                 <div class="card-body">
                     <h3><?php echo $producto['nombre']; ?></h3>
@@ -164,8 +164,8 @@ if (isset($_GET['logout'])) {
                     <p class="card-text"><?php echo $producto['descripcion']; ?></p>
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-FullClimsa-Secondary">Agregar</button>
-                            <button type="button" class="btn btn-sm btn-danger quitar-btn">Quitar</button>
+                            <button type="button" class="btn btn-sm btn-FullClimsa-Secondary agregar-carrito">Agregar</button>
+                            <button type="button" class="btn btn-sm btn-danger quitar-carrito">Quitar</button>
                         </div>
                         <small class="text-muted">S/.<?php echo $producto['precio']; ?></small>
                     </div>
