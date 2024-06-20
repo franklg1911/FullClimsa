@@ -89,6 +89,10 @@ $productos = getAllProducts();
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-truck"></i></div>
                                 Proveedor
                             </a>
+                            <a class="nav-link" href="ventas.php">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-coins"></i></div>
+                                Reporte ventas
+                            </a>
                         </div>
                     </div>
                 </nav>
@@ -106,6 +110,7 @@ $productos = getAllProducts();
                                     <thead>
                                         <tr>
                                             <th>ID</th>
+                                            <th>ID PROVEEDOR</th>
                                             <th>NOMBRE</th>
                                             <th>DESCRIPCION</th>
                                             <th>PRECIO (S/.)</th>
@@ -120,6 +125,7 @@ $productos = getAllProducts();
                                         <?php foreach($productos as $producto): ?>
                                             <tr>
                                                 <td><?php echo $producto['id']; ?></td>
+                                                <td><?php echo $producto['id_proveedor']; ?></td>
                                                 <td><?php echo $producto['nombre']; ?></td>
                                                 <td><?php echo $producto['descripcion']; ?></td>
                                                 <td><?php echo $producto['precio']; ?></td>

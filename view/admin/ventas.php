@@ -18,6 +18,10 @@ if (isset($_GET['logout'])) {
     exit; 
 }
 
+//Consulta para el historial de ventas
+require_once("../../controller/ordenesController.php");
+$ventas = getSalesHistory();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -85,6 +89,10 @@ if (isset($_GET['logout'])) {
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-truck"></i></div>
                                 Proveedor
                             </a>
+                            <a class="nav-link" href="ventas.php">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-coins"></i></div>
+                                Reporte ventas
+                            </a>
                         </div>
                     </div>
                 </nav>
@@ -94,14 +102,11 @@ if (isset($_GET['logout'])) {
                     <div class="container-fluid px-4">
                         <h1 class="mt-4 mb-4">Historial de ventas</h1>
                          <div class="card mb-4">
-                            <!-- <div class="card-header">
-                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregarUsuarioModal"><i class="fa-solid fa-user-plus"></i> Agregar Usuario</button>
-                            </div> -->
                             <div class="card-body">
-                                <table id="tablaUsuarios" class="table"  cellspacing="0" width="100%">
+                                <table id="tablaVentas" class="table"  cellspacing="0" width="100%">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
+                                            <th>ORDEN DE COMPRA</th>
                                             <th>CLIENTE</th>
                                             <th>PRODUCTO</th>
                                             <th>CANTIDAD</th>
@@ -110,7 +115,16 @@ if (isset($_GET['logout'])) {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                       
+                                       <?php foreach($ventas as $venta): ?>
+                                            <tr>
+                                                <td><?php echo $venta['orden_id']; ?></td>
+                                                <td><?php echo $venta['cliente']; ?></td>
+                                                <td><?php echo $venta['producto']; ?></td>
+                                                <td><?php echo $venta['cantidad']; ?></td>
+                                                <td><?php echo $venta['precio']; ?></td>
+                                                <td><?php echo $venta['total_pago']; ?></td>
+                                            </tr>
+                                        <?php endforeach; ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -134,5 +148,6 @@ if (isset($_GET['logout'])) {
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap4.min.js"></script>
+        <script src="../../assets/js/admin/ventas.js"></script>
     </body>
 </html>

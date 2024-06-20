@@ -70,13 +70,9 @@ if (isset($_GET['logout'])) {
                                 Dashboard
                             </a>
                             <div class="sb-sidenav-menu-heading">Complementos</div>
-                            <a class="nav-link" href="productos.php">
+                            <a class="nav-link" href="ventas.php">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-coins"></i></div>
-                                Ventas
-                            </a>
-                            <a class="nav-link" href="usuarios.php">
-                                <div class="sb-nav-link-icon"><i class="fa-solid fa-file-circle-question"></i></div>
-                                Consultar
+                                Reporte ventas
                             </a>
                         </div>
                     </div>
@@ -92,18 +88,9 @@ if (isset($_GET['logout'])) {
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-primary text-white mb-4">
-                                    <div class="card-body">Ventas</div>
+                                    <div class="card-body">Reporte ventas</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="ventas.php">Ver más</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-success text-white mb-4">
-                                    <div class="card-body">Consultar factura</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="facturas.php">Ver más</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>

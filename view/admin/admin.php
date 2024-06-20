@@ -86,6 +86,10 @@ if (isset($_GET['logout'])) {
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-truck"></i></div>
                                 Proveedor
                             </a>
+                            <a class="nav-link" href="ventas.php">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-coins"></i></div>
+                                Reporte ventas
+                            </a>
                         </div>
                     </div>
                 </nav>
