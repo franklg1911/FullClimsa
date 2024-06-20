@@ -71,7 +71,7 @@ while ($row = $result_carrito->fetch_assoc()) {
                             <a class="nav-link" href="productos.php">PRODUCTOS</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link"><?php echo $_SESSION['nombre']; ?></a>
+                            <a class="nav-link active"><?php echo $_SESSION['nombre']; ?></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="?logout=1">CERRAR SESIÓN</a>
