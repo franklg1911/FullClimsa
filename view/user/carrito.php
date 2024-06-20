@@ -107,7 +107,6 @@ while ($row = $result_carrito->fetch_assoc()) {
                             <p class="card-text"><?php echo $producto['descripcion']; ?></p>
                             <p class="card-text">Cantidad: <?php echo $producto['cantidad']; ?></p>
                             <p class="card-text">Precio unitario: S/. <?php echo $producto['precio']; ?></p>
-                            <!-- Aquí puedes agregar un botón para eliminar el producto del carrito -->
                             <a href="../../controller/eliminarCarrito.php?id=<?php echo $producto['id']; ?>" class="btn btn-danger">Eliminar del carrito</a>
                         </div>
                     </div>
@@ -135,7 +134,7 @@ while ($row = $result_carrito->fetch_assoc()) {
         </div>
         <div class="text-end mt-4">
             <a href="productos.php" class="btn btn-FullClimsa-Secondary">Continuar Comprando</a>
-            <a href="#" class="btn btn-primary">Pagar</a>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#paymentModal">Pagar</button>
         </div>
     <hr class="featurette-divider" />
     </main>
@@ -169,6 +168,37 @@ while ($row = $result_carrito->fetch_assoc()) {
             </div>
         </div>
     </footer>
+    <!-- Modal de pago -->
+    <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form id="paymentForm" method="POST" action="../../controller/procesarPago.php">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="paymentModalLabel">Información de Pago</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="cardNumber" class="form-label">Número de Tarjeta</label>
+                            <input type="text" class="form-control" id="cardNumber" name="cardNumber" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="cardExpiration" class="form-label">Fecha de Expiración (MM/AA)</label>
+                            <input type="text" class="form-control" id="cardExpiration" name="cardExpiration" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="cardCVC" class="form-label">CVC</label>
+                            <input type="password" class="form-control" id="cardCVC" name="cardCVC" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Pagar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <!-- Jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
