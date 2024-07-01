@@ -137,7 +137,7 @@ $proveedores = getAllProveedor();
                                                 <td><?php echo $proveedor['celular']; ?></td>
                                                 <td><?php echo $proveedor['correo']; ?></td>
                                                 <td>
-                                                    <button type="button" class="btn btn-warning editarBtn" data-bs-toggle="modal" data-bs-target="#editarUsuarioModal" data-id="<?php echo $proveedor['id']; ?>">Editar</button>
+                                                    <button type="button" class="btn btn-warning editarBtn" data-bs-toggle="modal" data-bs-target="#editarProveedorModal" data-id="<?php echo $proveedor['id']; ?>">Editar</button>
                                                 </td>
                                                 <td>
                                                     <button type="button" class="btn btn-danger eliminarBtn" data-id="<?php echo $proveedor['id']; ?>">Eliminar</button>
@@ -215,12 +215,8 @@ $proveedores = getAllProveedor();
             </div>
         </div>
 
-
-
-
-
         <!-- Modal para editar -->
-        <div class="modal fade" id="editarUsuarioModal" tabindex="-1" aria-labelledby="editarUsuarioModalLabel" aria-hidden="true">
+        <div class="modal fade" id="editarProveedorModal" tabindex="-1" aria-labelledby="editarProveedorModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                 <div class="modal-header">
@@ -228,33 +224,49 @@ $proveedores = getAllProveedor();
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="editarUsuarioForm">
-                    <input type="hidden" id="userId">
-                    <div class="mb-3">
-                        <label for="nombreUsuario" class="form-label">Nombre</label>
-                        <input type="text" class="form-control" id="nombre" autocomplete="off">
-                    </div>
-                    <div class="mb-3">
-                        <label for="emailUsuario" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" autocomplete="off">
-                    </div>
-                    <div class="mb-3">
-                        <label for="contraseña" class="form-label">Contraseña</label>
-                        <input type="password" class="form-control" id="contraseña" autocomplete="off">
-                    </div>
-                    <div class="mb-3">
-                        <label for="tipo" class="form-label">Tipo</label>
-                        <select class="form-select" name="agregar" id="tipo">
-                            <option value="admin">admin</option>
-                            <option value="usuario">usuario</option>
-                        </select>
-                    </div>
-
+                    <form id="editarProveedorForm">
+                        <input type="hidden" id="userId">
+                        <div class="mb-3">
+                            <label class="form-label">RUC</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="ruc" autocomplete="off">
+                                <button type="button" class="btn btn-primary" id="consultarRUC">Consultar</button>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Razón social</label>
+                            <input type="text" class="form-control" id="razonSocial" autocomplete="off">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Dirección</label>
+                            <input type="text" class="form-control" id="direccion" autocomplete="off">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Distrito</label>
+                            <input type="text" class="form-control" id="distrito" autocomplete="off">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Provincia</label>
+                            <input type="text" class="form-control" id="provincia" autocomplete="off">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Departamento</label>
+                            <input type="text" class="form-control" id="departamento" autocomplete="off">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Celular</label>
+                            <input type="number" class="form-control" id="celular" autocomplete="off">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Correo</label>
+                            <input type="email" class="form-control" id="correo" autocomplete="off">
+                        </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-success">Agregar</button>
+                        </div>
                     </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-warning" id="guardarCambiosBtn">Editar</button>
                 </div>
                 </div>
             </div>

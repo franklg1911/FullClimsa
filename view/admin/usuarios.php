@@ -188,23 +188,6 @@ $usuarios = getAllUsers();
             </div>
         </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         <!-- Modal para editar -->
         <div class="modal fade" id="editarUsuarioModal" tabindex="-1" aria-labelledby="editarUsuarioModalLabel" aria-hidden="true">
             <div class="modal-dialog">
