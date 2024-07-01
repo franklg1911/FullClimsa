@@ -4,6 +4,7 @@ require_once('../config/conexion.php');
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obtener los datos del formulario
     $id = $_POST['id'];
+    $id_proveedor = $_POST['id_proveedor'];
     $nombre = $_POST['nombre'];
     $descripcion = $_POST['descripcion'];
     $precio = $_POST['precio'];
@@ -27,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Actualizar los demás campos del producto
-    $sqlUpdateProducto = "UPDATE productos SET nombre = '$nombre', descripcion = '$descripcion', precio = '$precio', stock = '$stock', categoria = '$categoria' WHERE id = $id";
+    $sqlUpdateProducto = "UPDATE productos SET id_proveedor = '$id_proveedor', nombre = '$nombre', descripcion = '$descripcion', precio = '$precio', stock = '$stock', categoria = '$categoria' WHERE id = $id";
     if ($conn->query($sqlUpdateProducto) === TRUE) {
         echo "¡Producto actualizado correctamente!";
     } else {

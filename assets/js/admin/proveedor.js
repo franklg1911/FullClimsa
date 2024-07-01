@@ -58,41 +58,40 @@ $(document).ready(function () {
 
    //Editar proveedor
    $('.editarBtn').click(function () {
-      //Obtener los datos
-      var id = $(this).data('id');
-      var ruc = $(this).closest('tr').find('td:eq(1)').text();
-      var razon_social = $(this).closest('tr').find('td:eq(2)').text();
-      var direccion = $(this).closest('tr').find('td:eq(3)').text();
-      var distrito = $(this).closest('tr').find('td:eq(4)').text();
-      var provincia = $(this).closest('tr').find('td:eq(5)').text();
-      var departamento = $(this).closest('tr').find('td:eq(6)').text();
-      var celular = $(this).closest('tr').find('td:eq(7)').text();
-      var correo = $(this).closest('tr').find('td:eq(8)').text();
+    //Obtener los datos
+    var id = $(this).data('id');
+    var ruc = $(this).closest('tr').find('td:eq(1)').text();
+    var razon_social = $(this).closest('tr').find('td:eq(2)').text();
+    var direccion = $(this).closest('tr').find('td:eq(3)').text();
+    var distrito = $(this).closest('tr').find('td:eq(4)').text();
+    var provincia = $(this).closest('tr').find('td:eq(5)').text();
+    var departamento = $(this).closest('tr').find('td:eq(6)').text();
+    var celular = $(this).closest('tr').find('td:eq(7)').text();
+    var correo = $(this).closest('tr').find('td:eq(8)').text();
 
-      //Llenar los campos del formulario
-      $('#userId').val(id);
-      $('#ruc').val(ruc);
-      $('#razonSocial').val(razon_social);
-      $('#direccion').val(direccion);
-      $('#distrito').val(distrito);
-      $('#provincia').val(provincia);
-      $('#departamento').val(departamento);
-      $('#celular').val(celular);
-      $('#correo').val(correo);
-   });
+    //Llenar los campos
+    $('#userId').val(id);
+    $('#rucEditar').val(ruc);
+    $('#razonSocialEditar').val(razon_social);
+    $('#direccionEditar').val(direccion);
+    $('#distritoEditar').val(distrito);
+    $('#provinciaEditar').val(provincia);
+    $('#departamentoEditar').val(departamento);
+    $('#celularEditar').val(celular);
+    $('#correoEditar').val(correo);
 
-   $('#guardarCambiosBtn').click(function () {
+    $('#guardarCambiosBtn').click(function () {
     var id = $('#userId').val();
-    var ruc = $('#ruc').val();
-    var razon_social = $('#razonSocial').val();
-    var direccion = $('#direccion').val();
-    var distrito = $('#distrito').val();
-    var provincia = $('#provincia').val();
-    var departamento = $('#departamento').val();
-    var celular = $('#celular').val();
-    var correo = $('#correo').val();
+    var ruc = $('#rucEditar').val();
+    var razon_social = $('#razonSocialEditar').val();
+    var direccion = $('#direccionEditar').val();
+    var distrito = $('#distritoEditar').val();
+    var provincia = $('#provinciaEditar').val();
+    var departamento = $('#departamentoEditar').val();
+    var celular = $('#celularEditar').val();
+    var correo = $('#correoEditar').val();
 
-    if (ruc === "" || razon_social === "" || direccion === "" || distrito === "" || provincia === "" || departamento === "" || celular === "" || correo === "" ) {
+    if (ruc === "" || razon_social === "" || direccion === "" || distrito === "" || distrito === "" || provincia === "" || departamento === "" || celular === "" || correo === "") {
       alert("Todos los campos son obligatorios");
       return;
     }
@@ -106,10 +105,11 @@ $(document).ready(function () {
             razon_social: razon_social,
             direccion: direccion,
             distrito: distrito,
-            provincia : provincia,
+            provincia: provincia,
             departamento: departamento,
-            celular : celular,
-            correo : correo,
+            celular: celular,
+            correo: correo,
+            direccion: direccion
         },
         success: function (response) {
             console.log(response);
@@ -117,8 +117,28 @@ $(document).ready(function () {
             location.reload();//Recarga la página
         }
     });
-  });    
-   
+    });
+    });
+
+    //Eliminar usuario
+    $('.eliminarBtn').click(function () {
+        var id = $(this).data('id');
+
+        if (confirm("¿Estás seguro de eliminar este proveedor?")) {
+        $.ajax({
+            url: '../../controller/eliminarProveedor.php',
+            method: 'POST',
+            data: {
+                id: id
+            },
+            success: function (response) {
+                console.log(response);
+                location.reload();
+            }
+        });
+        }
+    });    
+
    //Consultar RUC
     $("#consultarRUC").click(function () {
         var ruc = $("#ruc").val();

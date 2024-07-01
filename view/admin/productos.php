@@ -111,6 +111,7 @@ $productos = getAllProducts();
                                         <tr>
                                             <th>ID</th>
                                             <th>ID PROVEEDOR</th>
+                                            <th>NOMBRE PROVEEDOR</th>
                                             <th>NOMBRE</th>
                                             <th>DESCRIPCION</th>
                                             <th>PRECIO (S/.)</th>
@@ -126,12 +127,13 @@ $productos = getAllProducts();
                                             <tr>
                                                 <td><?php echo $producto['id']; ?></td>
                                                 <td><?php echo $producto['id_proveedor']; ?></td>
+                                                <td><?php echo $producto['nombre_proveedor']; ?></td>
                                                 <td><?php echo $producto['nombre']; ?></td>
                                                 <td><?php echo $producto['descripcion']; ?></td>
                                                 <td><?php echo $producto['precio']; ?></td>
                                                 <td><?php echo $producto['stock']; ?></td>
                                                 <td><?php echo $producto['categoria']; ?></td>
-                                                <td><img src="../../img/uploads/<?php echo $producto['imagen']; ?>" alt="Imagen" style="width: 100px;"></td>
+                                                <td><img src="../../img/uploads/<?php echo $producto['imagen']; ?>" alt="Imagen" style="width: 100px"></td>
                                                 <td>
                                                     <button type="button" class="btn btn-warning editarBtn" data-bs-toggle="modal" data-bs-target="#editarProductosModal" data-id="<?php echo $producto['id']; ?>">Editar</button>
                                                 </td>
@@ -166,6 +168,20 @@ $productos = getAllProducts();
                     </div>
                     <div class="modal-body">
                         <form id="agregarProductosForm" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label class="form-label">Proveedor</label>
+                                <select id="proveedorAgregar" class="form-control" name="id_proveedor" required>
+                                    <option value="">Selecciona un proveedor</option>
+                                    <?php
+                                        require_once('../../controller/proveedorController.php');
+
+                                        $proveedores = getAllProveedor();
+                                        foreach ($proveedores as $proveedor) {
+                                            echo '<option value="' . $proveedor['id'] . '">' . $proveedor['razon_social'] . '</option>';
+                                        }
+                                    ?>
+                                </select> 
+                            </div>                           
                             <div class="mb-3">
                                 <label class="form-label">Nombre</label>
                                 <input type="text" class="form-control" id="nombreAgregar" autocomplete="off">
@@ -211,6 +227,21 @@ $productos = getAllProducts();
                 <div class="modal-body">
                     <form id="editarProductoForm">
                         <input type="hidden" id="userId">
+                        <input type="hidden" id="proveedorId">
+                        <div class="mb-3">
+                            <label class="form-label">Proveedor</label>
+                            <select id="proveedorEditar" class="form-control" name="id_proveedor" required>
+                                <option value="">Selecciona un proveedor</option>
+                                <?php
+                                    require_once('../../controller/proveedorController.php');
+
+                                    $proveedores = getAllProveedor();
+                                    foreach ($proveedores as $proveedor) {
+                                        echo '<option value="' . $proveedor['id'] . '">' . $proveedor['razon_social'] . '</option>';
+                                    }
+                                ?>
+                            </select> 
+                        </div>      
                         <div class="mb-3">
                             <label class="form-label">Nombre</label>
                             <input type="text" class="form-control" id="nombre" autocomplete="off">

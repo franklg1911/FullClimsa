@@ -17,6 +17,7 @@ $(document).ready(function () {
       sProcessing: "Procesando....",
     },
     scrollX: true,
+    paging: false,
    }); 
 
    //Agregar productos
@@ -30,6 +31,7 @@ $(document).ready(function () {
     formData.append('stock', $("#stockAgregar").val());
     formData.append('categoria', $("#categoriaAgregar").val());
     formData.append('imagen', $('#imagenAgregar')[0].files[0]); 
+    formData.append('id_proveedor', $("#proveedorAgregar").val());
     
     $.ajax({
       url: '../../controller/agregarProducto.php',
@@ -49,17 +51,21 @@ $(document).ready(function () {
     $('.editarBtn').click(function () {
       //Obtener los datos
       var id = $(this).data('id');
-      var nombre = $(this).closest('tr').find('td:eq(1)').text();
-      var descripcion = $(this).closest('tr').find('td:eq(2)').text();
-      var precio = $(this).closest('tr').find('td:eq(3)').text();
-      var stock = $(this).closest('tr').find('td:eq(4)').text();
-      var categoria = $(this).closest('tr').find('td:eq(5)').text();
+      var idProveedor = $(this).closest('tr').find('td:eq(1)').text();
+      var proveedor = $(this).closest('tr').find('td:eq(2)').text();
+      var nombre = $(this).closest('tr').find('td:eq(3)').text();
+      var descripcion = $(this).closest('tr').find('td:eq(4)').text();
+      var precio = $(this).closest('tr').find('td:eq(5)').text();
+      var stock = $(this).closest('tr').find('td:eq(6)').text();
+      var categoria = $(this).closest('tr').find('td:eq(7)').text();
       // URL de la imagen actual
-      var imagenActual = $(this).closest('tr').find('td:eq(6) img').attr('src');
+      var imagenActual = $(this).closest('tr').find('td:eq(8) img').attr('src');
       $('#imagenActual').attr('src', imagenActual);
 
       //Llenar los campos
       $('#userId').val(id);
+      $('#proveedorId').val(idProveedor);
+      $('#proveedorEditar').val(idProveedor); 
       $('#nombre').val(nombre);
       $('#descripcion').val(descripcion);
       $('#precio').val(precio);
@@ -82,6 +88,7 @@ $(document).ready(function () {
     // Guardar cambios
     $('#guardarCambiosBtn').click(function () {
         var id = $('#userId').val();
+        var id_proveedor = $('#proveedorEditar').val();
         var nombre = $('#nombre').val();
         var descripcion = $('#descripcion').val();
         var precio = $('#precio').val();
@@ -92,6 +99,7 @@ $(document).ready(function () {
         // Crear un objeto FormData para enviar los datos del formulario
         var formData = new FormData();
         formData.append('id', id);
+        formData.append('id_proveedor', id_proveedor);
         formData.append('nombre', nombre);
         formData.append('descripcion', descripcion);
         formData.append('precio', precio);

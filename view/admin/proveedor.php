@@ -224,47 +224,47 @@ $proveedores = getAllProveedor();
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="editarProveedorForm">
+                    <form>
                         <input type="hidden" id="userId">
                         <div class="mb-3">
                             <label class="form-label">RUC</label>
                             <div class="input-group">
-                                <input type="number" class="form-control" id="ruc" autocomplete="off">
+                                <input type="number" class="form-control" id="rucEditar" autocomplete="off">
                                 <button type="button" class="btn btn-primary" id="consultarRUC">Consultar</button>
                             </div>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Razón social</label>
-                            <input type="text" class="form-control" id="razonSocial" autocomplete="off">
+                            <input type="text" class="form-control" id="razonSocialEditar" autocomplete="off">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Dirección</label>
-                            <input type="text" class="form-control" id="direccion" autocomplete="off">
+                            <input type="text" class="form-control" id="direccionEditar" autocomplete="off">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Distrito</label>
-                            <input type="text" class="form-control" id="distrito" autocomplete="off">
+                            <input type="text" class="form-control" id="distritoEditar" autocomplete="off">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Provincia</label>
-                            <input type="text" class="form-control" id="provincia" autocomplete="off">
+                            <input type="text" class="form-control" id="provinciaEditar" autocomplete="off">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Departamento</label>
-                            <input type="text" class="form-control" id="departamento" autocomplete="off">
+                            <input type="text" class="form-control" id="departamentoEditar" autocomplete="off">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Celular</label>
-                            <input type="number" class="form-control" id="celular" autocomplete="off">
+                            <input type="number" class="form-control" id="celularEditar" autocomplete="off">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Correo</label>
-                            <input type="email" class="form-control" id="correo" autocomplete="off">
+                            <input type="email" class="form-control" id="correoEditar" autocomplete="off">
                         </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            <button type="submit" class="btn btn-success">Agregar</button>
+                            <button type="button" class="btn btn-warning" id="guardarCambiosBtn">Editar</button>
                         </div>
                     </form>
                 </div>
