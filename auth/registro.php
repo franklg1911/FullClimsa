@@ -1,10 +1,10 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //Conexion a la bd
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "fullclimsa";
+    $servername = "brc9cbwy6gdnfx0ibqhn-mysql.services.clever-cloud.com";
+    $username = "u2uhzjl9vvbeejwu";
+    $password = "1ynHEVRW6BsH70EoNSRZ";
+    $dbname = "brc9cbwy6gdnfx0ibqhn";
 
     // Crear la conexión
     $conn = new mysqli($servername, $username, $password, $dbname);
