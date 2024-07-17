@@ -1,6 +1,6 @@
 <?php
 class Conexion {
-    private $servername = "localhost";
+    private $servername = "brc9cbwy6gdnfx0ibqhn-mysql.services.clever-cloud.com";
     private $username = "u2uhzjl9vvbeejwu";
     private $password = "1ynHEVRW6BsH70EoNSRZ";
     private $dbname = "brc9cbwy6gdnfx0ibqhn";
