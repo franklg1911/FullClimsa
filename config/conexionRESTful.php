@@ -1,9 +1,9 @@
 <?php
 class Conexion {
     private $servername = "localhost";
-    private $username = "root";
-    private $password = "";
-    private $dbname = "fullclimsa";
+    private $username = "u2uhzjl9vvbeejwu";
+    private $password = "1ynHEVRW6BsH70EoNSRZ";
+    private $dbname = "brc9cbwy6gdnfx0ibqhn";
     private $conn;
 
     public function __construct() {
